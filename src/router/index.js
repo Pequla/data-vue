@@ -4,6 +4,11 @@ import DataView from '../views/DataView.vue'
 import GuildView from '../views/GuildView.vue'
 import UserView from '../views/UserView.vue'
 import SearchView from '../views/SearchView.vue'
+import DocsView from '../views/docs/DocsView.vue'
+import IntroView from '../views/docs/IntroView.vue'
+import CacheView from '../views/docs/CacheView.vue'
+import LinkView from '../views/docs/LinkView.vue'
+import MasterView from '../views/docs/MasterView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 
 const routes = [
@@ -49,6 +54,32 @@ const routes = [
       title: 'Search'
     },
     params: true
+  },
+  {
+    path: '/docs',
+    name: 'Docs',
+    component: DocsView,
+    meta: {
+      title: 'Docs'
+    },
+    children: [
+      {
+        path: '',
+        component: IntroView,
+      },
+      {
+        path: 'cache',
+        component: CacheView,
+      },
+      {
+        path: 'link',
+        component: LinkView,
+      },
+      {
+        path: 'master',
+        component: MasterView,
+      }
+    ]
   },
   {
     path: '/:catchAll(.*)',

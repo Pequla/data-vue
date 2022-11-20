@@ -17,6 +17,9 @@
           <li class="nav-item">
             <router-link class="nav-link" aria-current="page" to="/about">About</router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" aria-current="page" to="/docs">Docs</router-link>
+          </li>
         </ul>
         <div class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Username" aria-label="Username" v-model="lookup">
@@ -28,8 +31,10 @@
   <div class="container">
     <router-view />
     <footer class="text-center">
-      <p>&copy;{{ year }} <a href="https://github.com/Pequla">Pequla</a> | Powered by <a
+      <p class="m-0 p-0">&copy; {{ year }} <a href="https://github.com/Pequla">Pequla</a> | Powered by <a
           href="https://getbootstrap.com/">Boostrap 5</a> & <a href="https://vuejs.org/">Vue 3</a></p>
+      <p class="m-0 p-0"><a href="https://github.com/Pequla/data-vue">Source Code available on GitHub</a></p>
+      <p class="m-0 p-0">Hosted on <a href="https://contabo.com/en/vps/">Contabo</a></p>
     </footer>
   </div>
 </template>
@@ -43,7 +48,7 @@ const router = useRouter();
 
 const lookup = ref(null);
 const search = () => {
-  if (lookup.value === "" || lookup.value===null) return;
+  if (lookup.value === "" || lookup.value === null) return;
   if (lookup.value.includes(" ")) return;
   router.push('/search/' + lookup.value);
   lookup.value = null;
