@@ -17,8 +17,22 @@
           <li class="nav-item">
             <router-link class="nav-link" aria-current="page" to="/about">About</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" aria-current="page" to="/docs">Docs</router-link>
+          <li class="nav-item dropdown">
+            <router-link class="nav-link dropdown-toggle" to="/docs" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Docs
+            </router-link>
+            <ul class="dropdown-menu">
+              <li>
+                <router-link to="/docs/cache" class="dropdown-item">Data Cache</router-link>
+              </li>
+              <li>
+                <router-link to="/docs/link" class="dropdown-item">Data Link</router-link>
+              </li>
+              <li>
+                <router-link to="/docs/master" class="dropdown-item">Master</router-link>
+              </li>
+            </ul>
           </li>
         </ul>
         <div class="d-flex">
