@@ -8,6 +8,7 @@ import CacheView from '../views/docs/CacheView.vue'
 import LinkView from '../views/docs/LinkView.vue'
 import MasterView from '../views/docs/MasterView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
+import AccessView from '../views/AccessView.vue'
 
 const routes = [
   {
@@ -24,6 +25,14 @@ const routes = [
     component: AboutView,
     meta: {
       title: 'About'
+    }
+  },
+  {
+    path: '/access',
+    name: 'Access',
+    component: AccessView,
+    meta: {
+      title: 'Access'
     }
   },
   {
