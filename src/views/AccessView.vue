@@ -46,6 +46,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">ADDRESS</th>
+                        <th scope="col">XFF</th>
                         <th scope="col">PATH</th>
                         <th scope="col">CREATED AT</th>
                     </tr>
@@ -54,8 +55,12 @@
                     <tr v-for="record in result.content">
                         <th scope="row">{{ record.id }}</th>
                         <td>{{ record.address }}</td>
+                        <td>
+                            <div v-if="record.xff">{{ record.xff }}</div>
+                            <div v-else>NO XFF</div>
+                        </td>
                         <td>{{ record.path }}</td>
-                        <td>{{ new Date(record.createdAt) }}</td>
+                        <td>{{ DateService.formatDate(record.createdAt) }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -67,16 +72,15 @@
 </template>
 
 <script setup>
+import CacheService from '@/services/CacheService';
+import DateService from '@/services/DateService'
 import { ref } from 'vue';
-
-const baseUrl = 'https://cache.samifying.com/api/access'
 
 const result = ref(null);
 const size = ref(15);
 const retrieveData = (p = 0, s = size.value) => {
-    fetch(`${baseUrl}?page=${p}&size=${s}`)
-        .then(rsp => rsp.json())
-        .then(data => result.value = data)
+    CacheService.getAccess(p, s)
+        .then(rsp => result.value = rsp.data)
 }
 
 // Initial call

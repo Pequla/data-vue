@@ -10,7 +10,18 @@ const client = axios.create({
 });
 
 export default {
-    getAccess() {
-        return client.get('/access?sort=id,asc')
+    getAccess(page, size) {
+        return client.get('/access', {
+            params: {
+                page: page,
+                size: size
+            }
+        })
+    },
+    getDataById(id) {
+        return client.get('/data/discord/' + id)
+    },
+    getDataByName(name) {
+        return client.get('/data/name/' + name)
     }
 }

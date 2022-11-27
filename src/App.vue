@@ -17,6 +17,9 @@
           <li class="nav-item">
             <router-link class="nav-link" aria-current="page" to="/about">About</router-link>
           </li>
+          <li class="nav-item" :v-if="showAccess">
+            <router-link class="nav-link" aria-current="page" to="/access">Access</router-link>
+          </li>
           <li class="nav-item dropdown">
             <router-link class="nav-link dropdown-toggle" to="/docs" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
@@ -47,18 +50,27 @@
     <footer class="text-center">
       <p class="m-0 p-0">&copy; {{ year }} <a href="https://github.com/Pequla">Pequla</a> | Powered by <a
           href="https://getbootstrap.com/">Boostrap 5</a> & <a href="https://vuejs.org/">Vue 3</a></p>
-      <p class="m-0 p-0"><a href="https://github.com/Pequla/data-vue">Source Code available on GitHub</a></p>
-      <p class="m-0 p-0">Hosted on <a href="https://contabo.com/en/vps/">Contabo</a></p>
+      <p class="m-0 p-0">Source code available on <a href="https://github.com/Pequla/data-vue">GitHub</a></p>
     </footer>
   </div>
 </template>
 
 <script setup>
+import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const year = new Date().getFullYear();
 const router = useRouter();
+
+// Display access only on 109.198.0.204
+let showAccess = false;
+axios.get('https://api.ipify.org?format=json')
+  .then(rsp => {
+    if (rsp.data.ip === '109.198.0.204') {
+      showAccess = true;
+    }
+  })
 
 const lookup = ref(null);
 const search = () => {

@@ -58,7 +58,7 @@
                     <td v-if="showGuild">
                         <router-link :to="'/guild/' + user.guildId">{{ user.guildId }}</router-link>
                     </td>
-                    <td>{{ new Date(user.createdAt) }}</td>
+                    <td>{{ DateService.formatDate(user.createdAt) }}</td>
                 </tr>
             </tbody>
         </table>
@@ -69,6 +69,8 @@
 </template>
 
 <script setup>
+import DateService from '@/services/DateService';
+import axios from 'axios';
 import { toRefs } from 'vue'
 import { ref } from 'vue';
 
@@ -81,9 +83,13 @@ const { baseUrl, showGuild } = toRefs(props);
 const result = ref(null);
 const size = ref(15);
 const retrieveData = (p = 0, s = size.value) => {
-    fetch(`${baseUrl.value}?page=${p}&size=${s}`)
-        .then(rsp => rsp.json())
-        .then(data => result.value = data)
+    axios.get(baseUrl.value, {
+        params: {
+            page: p,
+            size: s
+        }
+    })
+        .then(rsp => result.value = rsp.data)
 }
 
 // Initial call

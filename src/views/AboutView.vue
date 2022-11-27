@@ -30,19 +30,24 @@
         </tbody>
     </table>
 
-    <div>
-        <h3 v-if="guilds">Discord servers</h3>
+    <div v-if="guilds">
+        <h3>Discord servers</h3>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">ICON</th>
                     <th scope="col">NAME</th>
+                    <th scope="col">ID</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="guild in guilds">
-                    <th scope="row">{{ guild.id }}</th>
+                    <th scope="rpw">
+                        <img class="guild-icon" :src="guild.iconUrl" :alt="guild.name" v-if="guild.iconUrl"/>
+                        <img class="guild-icon" src="@/assets/logo.png" alt="guild placeholder" v-else/>
+                    </th>
                     <td>{{ guild.name }}</td>
+                    <th><router-link :to="'/guild/'+guild.id">{{ guild.id }}</router-link></th>
                 </tr>
             </tbody>
         </table>
@@ -50,15 +55,20 @@
 </template>
 
 <script setup>
+import LinkService from '@/services/LinkService';
 import { ref } from 'vue';
 
 const info = ref(null);
-fetch('https://link.samifying.com/api/info')
-    .then(rsp => rsp.json())
-    .then(data => info.value = data)
+LinkService.getInfo()
+    .then(rsp => info.value = rsp.data)
 
 const guilds = ref(null);
-fetch('https://link.samifying.com/api/info/guilds')
-    .then(rsp => rsp.json())
-    .then(data => guilds.value = data)
+LinkService.getGuilds()
+    .then(rsp => guilds.value = rsp.data)
 </script>
+
+<style scoped>
+.guild-icon {
+    width: 64px;
+}
+</style>

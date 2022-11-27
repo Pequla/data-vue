@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <th>CREATED AT</th>
-                    <th>{{ new Date(user.createdAt) }}</th>
+                    <th>{{ DateService.formatDate(user.createdAt) }}</th>
                 </tr>
                 <tr>
                     <th>SKIN</th>
@@ -54,6 +54,7 @@
 </template>
 
 <script setup>
+import DateService from '@/services/DateService';
 import { toRefs } from 'vue'
 
 const props = defineProps({
