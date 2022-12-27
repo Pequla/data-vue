@@ -65,7 +65,10 @@
                             :cornersSquareOptions="{ type: 'dot', color: '#000000' }"
                             :cornersDotOptions="{ type: undefined, color: '#000000' }" myclass="my-qur"
                             imgclass="img-qr" /> -->
-                            <q-r-code-vue3 :value="qrcodeData" :width="150" :height="150"></q-r-code-vue3>
+                        <q-r-code-vue3 :value="JSON.stringify({
+                            type: 'cache',
+                            id: user.id
+                        })" :width="150" :height="150"></q-r-code-vue3>
                     </th>
                 </tr>
             </tbody>
@@ -85,9 +88,4 @@ const props = defineProps({
     user: Object
 });
 const { user } = toRefs(props);
-
-const qrcodeData = JSON.stringify({
-    type: "cache",
-    id: user.value.id
-})
 </script>
