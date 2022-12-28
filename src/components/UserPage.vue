@@ -20,15 +20,15 @@
                 </li>
                 <li class="page-item" v-if="!result.first">
                     <button class="page-link" @click="retrieveData(result.number - 1, result.size)">{{ result.number - 1
-                    }}</button>
+}}</button>
                 </li>
                 <li class="page-item active">
                     <button class="page-link" @click="retrieveData(result.number, result.size)">{{ result.number
-                    }}</button>
+}}</button>
                 </li>
                 <li class="page-item" v-if="!result.last">
                     <button class="page-link" @click="retrieveData(result.number + 1, result.size)">{{ result.number + 1
-                    }}</button>
+}}</button>
                 </li>
                 <li class="page-item">
                     <button class="page-link" @click="nextPage">Next</button>
@@ -80,8 +80,13 @@ const props = defineProps({
 });
 const { baseUrl, showGuild } = toRefs(props);
 
+// Page size in localstorage
+const pageSizeKey = 'PAGE_SIZE';
+if (!localStorage.getItem(pageSizeKey))
+    localStorage.setItem(pageSizeKey, 15)
+
 const result = ref(null);
-const size = ref(15);
+const size = ref(parseInt(localStorage.getItem(pageSizeKey)));
 const retrieveData = (p = 0, s = size.value) => {
     axios.get(baseUrl.value, {
         params: {
@@ -121,6 +126,8 @@ const lastPage = () => {
 
 // Change Size
 const changeSize = (e) => {
-    retrieveData(0, e.target.value)
+    const newSize = e.target.value
+    localStorage.setItem(pageSizeKey, newSize)
+    retrieveData(0, newSize)
 }
 </script>
