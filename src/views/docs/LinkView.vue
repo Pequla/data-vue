@@ -12,12 +12,12 @@
         </ul>
         <p>Error object example:</p>
         <pre><code class="lang-json">{
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"RuntimeException"</span>,
-    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"User not found"</span>,
-    <span class="hljs-attr">"path"</span>: <span class="hljs-string">"/api/user/651476404201979926/06805a4280d0463dbf7151b1e1317cd4"</span>,
-    <span class="hljs-attr">"timestamp"</span>: <span class="hljs-number">1656578263538</span>
-}
-</code></pre>
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"RuntimeException"</span>,
+        <span class="hljs-attr">"message"</span>: <span class="hljs-string">"User not found"</span>,
+        <span class="hljs-attr">"path"</span>: <span class="hljs-string">"/api/user/651476404201979926/06805a4280d0463dbf7151b1e1317cd4"</span>,
+        <span class="hljs-attr">"timestamp"</span>: <span class="hljs-number">1656578263538</span>
+    }
+    </code></pre>
         <h4 id="endpoints">Endpoints</h4>
         <p>Application supports a big list of endpoints with loads of customization to suite everyone&#39;s needs</p>
         <h5 id="mojang-api-cache">Mojang API Cache</h5>
@@ -38,6 +38,8 @@
             <li>GET <code>/api/data/discord/{id}</code></li>
             <li>GET <code>/api/data/discord/{id}/history</code> - List of all link data for user</li>
             <li>GET <code>/api/data/guild/{id}</code> - Paged response of all links in a guild</li>
+            <li>GET <code>/api/data/created/after/{date}</code> - Lists all links created after said date</li>
+            <li>GET <code>/api/data/deleted/after/{date}</code> - Lists all links deleted after said date</li>
         </ul>
         <h5 id="discord-user-member">Discord User/Member</h5>
         <ul>
