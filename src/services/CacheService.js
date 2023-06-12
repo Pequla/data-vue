@@ -14,7 +14,8 @@ export default {
         return client.get('/access', {
             params: {
                 page: page,
-                size: size
+                size: size,
+                sort: "id,desc"
             }
         })
     },
