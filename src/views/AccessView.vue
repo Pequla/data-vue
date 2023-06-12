@@ -46,8 +46,8 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">ADDRESS</th>
-                        <th scope="col">XFF</th>
                         <th scope="col">PATH</th>
+                        <th scope="col">METHOD</th>
                         <th scope="col">CREATED AT</th>
                     </tr>
                 </thead>
@@ -55,11 +55,8 @@
                     <tr v-for="record in result.content">
                         <th scope="row">{{ record.id }}</th>
                         <td>{{ record.address }}</td>
-                        <td>
-                            <div v-if="record.xff">{{ record.xff }}</div>
-                            <div v-else>NO XFF</div>
-                        </td>
                         <td>{{ record.path }}</td>
+                        <td>{{ record.method }}</td>
                         <td>{{ DateService.formatDate(record.createdAt) }}</td>
                     </tr>
                 </tbody>
