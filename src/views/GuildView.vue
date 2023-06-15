@@ -6,7 +6,7 @@
 <script setup>
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import UserPagination from '@/components/UserPage.vue';
-import { useRoute } from 'vue-router'
+import {useRoute} from 'vue-router'
 
 const route = useRoute()
 const id = route.params.id;

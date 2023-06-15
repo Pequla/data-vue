@@ -11,22 +11,22 @@
     </p>
     <table class="table table-striped" v-if="info">
         <tbody>
-            <tr>
-                <th>APP ID</th>
-                <th>{{ info.id }}</th>
-            </tr>
-            <tr>
-                <th>NAME</th>
-                <th>{{ info.name }}</th>
-            </tr>
-            <tr>
-                <th>SERVER COUNT</th>
-                <th>{{ info.serverCount }}</th>
-            </tr>
-            <tr>
-                <th>ACOUNT LINKS</th>
-                <th>{{ info.totalAccountLinks }}</th>
-            </tr>
+        <tr>
+            <th>APP ID</th>
+            <th>{{ info.id }}</th>
+        </tr>
+        <tr>
+            <th>NAME</th>
+            <th>{{ info.name }}</th>
+        </tr>
+        <tr>
+            <th>SERVER COUNT</th>
+            <th>{{ info.serverCount }}</th>
+        </tr>
+        <tr>
+            <th>ACOUNT LINKS</th>
+            <th>{{ info.totalAccountLinks }}</th>
+        </tr>
         </tbody>
     </table>
 
@@ -34,21 +34,23 @@
         <h3>Discord servers</h3>
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th scope="col">ICON</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col">ID</th>
-                </tr>
+            <tr>
+                <th scope="col">ICON</th>
+                <th scope="col">NAME</th>
+                <th scope="col">ID</th>
+            </tr>
             </thead>
             <tbody>
-                <tr v-for="guild in guilds">
-                    <th scope="rpw">
-                        <img class="guild-icon" :src="guild.iconUrl" :alt="guild.name" v-if="guild.iconUrl"/>
-                        <img class="guild-icon" src="@/assets/logo.png" alt="guild placeholder" v-else/>
-                    </th>
-                    <td>{{ guild.name }}</td>
-                    <th><router-link :to="'/guild/'+guild.id">{{ guild.id }}</router-link></th>
-                </tr>
+            <tr v-for="guild in guilds">
+                <th scope="rpw">
+                    <img class="guild-icon" :src="guild.iconUrl" :alt="guild.name" v-if="guild.iconUrl"/>
+                    <img class="guild-icon" src="@/assets/logo.png" alt="guild placeholder" v-else/>
+                </th>
+                <td>{{ guild.name }}</td>
+                <th>
+                    <router-link :to="'/guild/'+guild.id">{{ guild.id }}</router-link>
+                </th>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -56,7 +58,7 @@
 
 <script setup>
 import LinkService from '@/services/LinkService';
-import { ref } from 'vue';
+import {ref} from 'vue';
 
 const info = ref(null);
 LinkService.getInfo()

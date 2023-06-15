@@ -7,8 +7,8 @@
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import UserDetails from '@/components/UserDetails.vue';
 import CacheService from '@/services/CacheService';
-import { ref } from 'vue';
-import { useRoute } from 'vue-router'
+import {ref} from 'vue';
+import {useRoute} from 'vue-router'
 
 const route = useRoute()
 const id = route.params.id;

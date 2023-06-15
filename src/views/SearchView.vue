@@ -8,8 +8,8 @@ import Breadcrumb from '@/components/Breadcrumb.vue';
 import UserDetails from '@/components/UserDetails.vue';
 import router from '@/router';
 import CacheService from '@/services/CacheService';
-import { ref } from 'vue';
-import { useRoute } from 'vue-router'
+import {ref} from 'vue';
+import {useRoute} from 'vue-router'
 
 const user = ref(null)
 const route = useRoute()
