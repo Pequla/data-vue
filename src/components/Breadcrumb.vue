@@ -13,13 +13,13 @@
 </template>
 
 <script setup>
-import { toRefs } from 'vue'
+import {toRefs} from 'vue'
 
 const props = defineProps({
     crumbs: Array,
     root: Object
 });
-const { crumbs, root } = toRefs(props);
+const {crumbs, root} = toRefs(props);
 </script>
 
 <style scoped>

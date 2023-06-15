@@ -5,5 +5,5 @@ export default {
     },
     addLeadingZeros(num) {
         return String(num).padStart(2, '0');
-      }
+    }
 }

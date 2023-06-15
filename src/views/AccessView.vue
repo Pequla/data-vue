@@ -20,18 +20,24 @@
                         <button class="page-link" @click="previousPage">Previous</button>
                     </li>
                     <li class="page-item" v-if="!result.first">
-                        <button class="page-link" @click="retrieveData(result.number - 1, result.size)">{{ result.number
-                                - 1
-                        }}</button>
+                        <button class="page-link" @click="retrieveData(result.number - 1, result.size)">{{
+                            result.number
+                            - 1
+                            }}
+                        </button>
                     </li>
                     <li class="page-item active">
-                        <button class="page-link" @click="retrieveData(result.number, result.size)">{{ result.number
-                        }}</button>
+                        <button class="page-link" @click="retrieveData(result.number, result.size)">{{
+                            result.number
+                            }}
+                        </button>
                     </li>
                     <li class="page-item" v-if="!result.last">
-                        <button class="page-link" @click="retrieveData(result.number + 1, result.size)">{{ result.number
-                                + 1
-                        }}</button>
+                        <button class="page-link" @click="retrieveData(result.number + 1, result.size)">{{
+                            result.number
+                            + 1
+                            }}
+                        </button>
                     </li>
                     <li class="page-item">
                         <button class="page-link" @click="nextPage">Next</button>
@@ -43,22 +49,22 @@
             </nav>
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">ADDRESS</th>
-                        <th scope="col">PATH</th>
-                        <th scope="col">METHOD</th>
-                        <th scope="col">CREATED AT</th>
-                    </tr>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">ADDRESS</th>
+                    <th scope="col">PATH</th>
+                    <th scope="col">METHOD</th>
+                    <th scope="col">CREATED AT</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="record in result.content">
-                        <th scope="row">{{ record.id }}</th>
-                        <td>{{ record.address }}</td>
-                        <td>{{ record.path }}</td>
-                        <td>{{ record.method }}</td>
-                        <td>{{ DateService.formatDate(record.createdAt) }}</td>
-                    </tr>
+                <tr v-for="record in result.content">
+                    <th scope="row">{{ record.id }}</th>
+                    <td>{{ record.address }}</td>
+                    <td>{{ record.path }}</td>
+                    <td>{{ record.method }}</td>
+                    <td>{{ DateService.formatDate(record.createdAt) }}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -71,7 +77,7 @@
 <script setup>
 import CacheService from '@/services/CacheService';
 import DateService from '@/services/DateService'
-import { ref } from 'vue';
+import {ref} from 'vue';
 
 const result = ref(null);
 const size = ref(15);

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import AboutView from '../views/AboutView.vue'
 import DataView from '../views/DataView.vue'
 import GuildView from '../views/GuildView.vue'
@@ -11,100 +11,100 @@ import NotFoundView from '../views/NotFoundView.vue'
 import AccessView from '../views/AccessView.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: DataView,
-    meta: {
-      title: 'Home'
-    }
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: AboutView,
-    meta: {
-      title: 'About'
-    }
-  },
-  {
-    path: '/access',
-    name: 'Access',
-    component: AccessView,
-    meta: {
-      title: 'Access'
-    }
-  },
-  {
-    path: '/guild/:id',
-    name: 'GuildData',
-    component: GuildView,
-    meta: {
-      title: 'Guild'
+    {
+        path: '/',
+        name: 'Home',
+        component: DataView,
+        meta: {
+            title: 'Home'
+        }
     },
-    params: true
-  },
-  {
-    path: '/user/:id',
-    name: 'UserData',
-    component: UserView,
-    meta: {
-      title: 'User'
+    {
+        path: '/about',
+        name: 'About',
+        component: AboutView,
+        meta: {
+            title: 'About'
+        }
     },
-    params: true
-  },
-  {
-    path: '/search/:name',
-    name: 'UserSearch',
-    component: SearchView,
-    meta: {
-      title: 'Search'
+    {
+        path: '/access',
+        name: 'Access',
+        component: AccessView,
+        meta: {
+            title: 'Access'
+        }
     },
-    params: true
-  },
-  {
-    path: '/docs/cache',
-    name: 'CacheDocs',
-    component: CacheView,
-    meta: {
-      title: 'Cache'
+    {
+        path: '/guild/:id',
+        name: 'GuildData',
+        component: GuildView,
+        meta: {
+            title: 'Guild'
+        },
+        params: true
+    },
+    {
+        path: '/user/:id',
+        name: 'UserData',
+        component: UserView,
+        meta: {
+            title: 'User'
+        },
+        params: true
+    },
+    {
+        path: '/search/:name',
+        name: 'UserSearch',
+        component: SearchView,
+        meta: {
+            title: 'Search'
+        },
+        params: true
+    },
+    {
+        path: '/docs/cache',
+        name: 'CacheDocs',
+        component: CacheView,
+        meta: {
+            title: 'Cache'
+        }
+    },
+    {
+        path: '/docs/link',
+        name: 'LinkDocs',
+        component: LinkView,
+        meta: {
+            title: 'Link'
+        }
+    },
+    {
+        path: '/docs/master',
+        name: 'MasterDocs',
+        component: MasterView,
+        meta: {
+            title: 'Master'
+        }
+    },
+    {
+        path: '/:catchAll(.*)',
+        name: 'NotFound',
+        component: NotFoundView,
+        meta: {
+            title: 'Not Found'
+        }
     }
-  },
-  {
-    path: '/docs/link',
-    name: 'LinkDocs',
-    component: LinkView,
-    meta: {
-      title: 'Link'
-    }
-  },
-  {
-    path: '/docs/master',
-    name: 'MasterDocs',
-    component: MasterView,
-    meta: {
-      title: 'Master'
-    }
-  },
-  {
-    path: '/:catchAll(.*)',
-    name: 'NotFound',
-    component: NotFoundView,
-    meta: {
-      title: 'Not Found'
-    }
-  }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+    history: createWebHistory(process.env.BASE_URL),
+    routes
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.title)
-    document.title = `${to.meta.title} :: DataVue`;
-  next();
+    if (to.meta.title)
+        document.title = `${to.meta.title} :: DataVue`;
+    next();
 })
 
 export default router
