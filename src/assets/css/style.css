@@ -1,0 +1,18 @@
+.icon {
+    width: 32px;
+}
+
+.user-row:hover {
+    background-color: #e2e2e2;
+    cursor: pointer;
+}
+
+.mobile-hidden {
+    display: table-cell;
+}
+
+@media(max-width: 50rem) {
+    .mobile-hidden {
+        display: none;
+    }
+}

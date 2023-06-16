@@ -48,10 +48,6 @@
             <tr>
                 <th>QRCODE (Android App)</th>
                 <th>
-<!--                    <q-r-code-vue3 :value="JSON.stringify({-->
-<!--                            type: 'cache',-->
-<!--                            id: user.id-->
-<!--                        })" :width="150" :height="150"></q-r-code-vue3>-->
                     <QRCodeVue3
                             :width="150"
                             :height="150"

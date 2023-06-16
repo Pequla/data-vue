@@ -9,7 +9,7 @@
         The application is running alongside a discord bot that provides mechanisms for data manipulation. Here you can
         find more details about the bot
     </p>
-    <table class="table table-striped" v-if="info">
+    <table class="table table-striped w-75 mx-auto" v-if="info">
         <tbody>
         <tr>
             <th>APP ID</th>
@@ -32,7 +32,7 @@
 
     <div v-if="guilds">
         <h3>Discord servers</h3>
-        <table class="table table-striped">
+        <table class="table table-striped w-75 mx-auto">
             <thead>
             <tr>
                 <th scope="col">ICON</th>
@@ -43,8 +43,8 @@
             <tbody>
             <tr v-for="guild in guilds">
                 <th scope="rpw">
-                    <img class="guild-icon" :src="guild.iconUrl" :alt="guild.name" v-if="guild.iconUrl"/>
-                    <img class="guild-icon" src="@/assets/logo.png" alt="guild placeholder" v-else/>
+                    <img class="icon" :src="guild.iconUrl" :alt="guild.name" v-if="guild.iconUrl"/>
+                    <img class="icon" src="@/assets/img/discord-mark-black.png" alt="guild placeholder" v-else/>
                 </th>
                 <td>{{ guild.name }}</td>
                 <th>
@@ -68,9 +68,3 @@ const guilds = ref(null);
 LinkService.getGuilds()
     .then(rsp => guilds.value = rsp.data)
 </script>
-
-<style scoped>
-.guild-icon {
-    width: 64px;
-}
-</style>

@@ -1,6 +1,6 @@
 <template>
-    <Breadcrumb :crumbs="['Guild', id]"></Breadcrumb>
-    <UserPagination :base-url="url" :show-guild="false"></UserPagination>
+  <Breadcrumb :crumbs="['Guild', id]"></Breadcrumb>
+  <UserPagination :base-url="url"></UserPagination>
 </template>
 
 <script setup>

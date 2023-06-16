@@ -1,6 +1,6 @@
 <template>
-    <h3>Home page</h3>
-    <UserPage :base-url="url" :show-guild="true"></UserPage>
+  <h3>Home page</h3>
+  <UserPage :base-url="url"></UserPage>
 </template>
 
 <script setup>
