@@ -53,7 +53,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="user of result.content" @click="(e)=>goToUser(user)" class="user-row">
+      <tr v-for="user of result.content" @click="(e)=>goToUser(user)" class="clickable-row">
         <th scope="row">
           <img class="icon" :src="user.avatar" :alt="user.tag">
           <img class="icon" :src="`https://visage.surgeplay.com/face/32/${user.uuid}`" :alt="user.name">

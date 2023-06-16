@@ -1,5 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import AboutView from '../views/AboutView.vue'
+import AboutView from '../views/about/AboutView.vue'
+import GuildList from "@/views/about/GuildList.vue";
 import DataView from '../views/DataView.vue'
 import GuildView from '../views/GuildView.vue'
 import UserView from '../views/UserView.vue'
@@ -25,6 +26,14 @@ const routes = [
         component: AboutView,
         meta: {
             title: 'About'
+        }
+    },
+    {
+        path: '/guilds',
+        name: 'Guilds',
+        component: GuildList,
+        meta: {
+            title: 'Guilds'
         }
     },
     {
