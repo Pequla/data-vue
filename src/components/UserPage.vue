@@ -1,5 +1,5 @@
 <template>
-  <div v-if="result">
+  <div v-if="result && result.content.length > 0">
     <nav>
       <ul class="pagination justify-content-start">
         <li class="page-item">
@@ -63,6 +63,9 @@
       </tr>
       </tbody>
     </table>
+  </div>
+  <div v-else-if="result && result.content.length === 0">
+    Sorry, no data was found
   </div>
   <div v-else>
     Loading data, please wait...
