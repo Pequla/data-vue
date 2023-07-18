@@ -108,7 +108,7 @@ const nextPage = () => {
   retrieveData(result.value.number += 1, result.value.size)
 }
 
-// Previus Page
+// Previous Page
 const previousPage = () => {
   if (result.value.first) return;
   retrieveData(result.value.number -= 1, result.value.size)
