@@ -52,7 +52,7 @@
     <router-view/>
     <footer class="text-center">
       <p class="m-0 p-0">&copy; {{ year }} <a href="https://github.com/Pequla">Pequla</a> | Powered by <a
-          href="https://getbootstrap.com/">Boostrap 5</a> & <a href="https://vuejs.org/">Vue 3</a></p>
+          href="https://getbootstrap.com/">Bootstrap 5</a> & <a href="https://vuejs.org/">Vue 3</a></p>
       <p class="m-0 p-0">Source code available on <a href="https://github.com/Pequla/data-vue">GitHub</a></p>
     </footer>
   </div>

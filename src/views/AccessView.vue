@@ -80,7 +80,7 @@ import DateService from '@/services/DateService'
 import {ref} from 'vue';
 
 const result = ref(null);
-const size = ref(15);
+const size = ref(10);
 const retrieveData = (p = 0, s = size.value) => {
     CacheService.getAccess(p, s)
         .then(rsp => result.value = rsp.data)

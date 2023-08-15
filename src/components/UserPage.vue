@@ -18,23 +18,8 @@
         <li class="page-item">
           <button class="page-link" @click="previousPage">Previous</button>
         </li>
-        <li class="page-item" v-if="!result.first">
-          <button class="page-link" @click="retrieveData(result.number - 1, result.size)">{{
-              result.number - 1
-            }}
-          </button>
-        </li>
         <li class="page-item active">
-          <button class="page-link" @click="retrieveData(result.number, result.size)">{{
-              result.number
-            }}
-          </button>
-        </li>
-        <li class="page-item" v-if="!result.last">
-          <button class="page-link" @click="retrieveData(result.number + 1, result.size)">{{
-              result.number + 1
-            }}
-          </button>
+          <button class="page-link">{{ result.number }}</button>
         </li>
         <li class="page-item">
           <button class="page-link" @click="nextPage">Next</button>
@@ -46,21 +31,21 @@
     </nav>
     <table class="table table-striped mx-auto">
       <thead>
-      <tr>
-        <th scope="col">ICON</th>
-        <th scope="col">MINECRAFT</th>
-        <th scope="col" class="mobile-hidden">DISCORD</th>
-      </tr>
+        <tr>
+          <th scope="col">ICON</th>
+          <th scope="col">MINECRAFT</th>
+          <th scope="col" class="mobile-hidden">DISCORD</th>
+        </tr>
       </thead>
       <tbody>
-      <tr v-for="user of result.content" @click="(e)=>goToUser(user)" class="clickable-row">
-        <th scope="row">
-          <img class="icon" :src="user.avatar" :alt="user.tag">
-          <img class="icon" :src="`https://visage.surgeplay.com/face/32/${user.uuid}`" :alt="user.name">
-        </th>
-        <td>{{ user.name }}</td>
-        <td class="mobile-hidden">{{ user.tag }}</td>
-      </tr>
+        <tr v-for="user of result.content" @click="(e) => goToUser(user)" class="clickable-row">
+          <th scope="row">
+            <img class="icon" :src="user.avatar" :alt="user.tag">
+            <img class="icon" :src="`https://visage.surgeplay.com/face/32/${user.uuid}`" :alt="user.name">
+          </th>
+          <td>{{ user.name }}</td>
+          <td class="mobile-hidden">{{ user.tag }}</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -74,18 +59,18 @@
 
 <script setup>
 import axios from 'axios';
-import {ref, toRefs} from 'vue'
-import {useRouter} from "vue-router";
+import { ref, toRefs } from 'vue'
+import { useRouter } from "vue-router";
 
 const props = defineProps({
   baseUrl: String
 });
-const {baseUrl} = toRefs(props);
+const { baseUrl } = toRefs(props);
 
 // Page size in localstorage
 const pageSizeKey = 'PAGE_SIZE';
 if (!localStorage.getItem(pageSizeKey))
-  localStorage.setItem(pageSizeKey, 15)
+  localStorage.setItem(pageSizeKey, 10)
 
 const result = ref(null);
 const size = ref(parseInt(localStorage.getItem(pageSizeKey)));
