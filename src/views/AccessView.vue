@@ -19,23 +19,9 @@
                     <li class="page-item">
                         <button class="page-link" @click="previousPage">Previous</button>
                     </li>
-                    <li class="page-item" v-if="!result.first">
-                        <button class="page-link" @click="retrieveData(result.number - 1, result.size)">{{
-                            result.number
-                            - 1
-                            }}
-                        </button>
-                    </li>
                     <li class="page-item active">
-                        <button class="page-link" @click="retrieveData(result.number, result.size)">{{
+                        <button class="page-link">{{
                             result.number
-                            }}
-                        </button>
-                    </li>
-                    <li class="page-item" v-if="!result.last">
-                        <button class="page-link" @click="retrieveData(result.number + 1, result.size)">{{
-                            result.number
-                            + 1
                             }}
                         </button>
                     </li>
