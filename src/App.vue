@@ -5,9 +5,8 @@
         <img src="@/assets/img/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
         DataVue
       </router-link>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -23,7 +22,7 @@
           </li>
           <li class="nav-item dropdown">
             <router-link class="nav-link dropdown-toggle" to="/docs" role="button" data-bs-toggle="dropdown"
-                         aria-expanded="false">
+              aria-expanded="false">
               Docs
             </router-link>
             <ul class="dropdown-menu">
@@ -40,27 +39,25 @@
           </li>
         </ul>
         <div class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Username" aria-label="Username"
-                 v-model="lookup"
-                 @keypress="keyPressHandler">
+          <input class="form-control me-2" type="search" placeholder="Username" aria-label="Username" v-model="lookup"
+            @keypress="keyPressHandler">
           <button class="btn btn-outline-success" type="button" @click="search">Search</button>
         </div>
       </div>
     </div>
   </nav>
   <div class="container">
-    <router-view/>
+    <router-view />
     <footer class="text-center">
-      <p class="m-0 p-0">&copy; {{ year }} <a href="https://github.com/Pequla">Pequla</a> | Powered by <a
-          href="https://getbootstrap.com/">Bootstrap 5</a> & <a href="https://vuejs.org/">Vue 3</a></p>
-      <p class="m-0 p-0">Source code available on <a href="https://github.com/Pequla/data-vue">GitHub</a></p>
+      <p class="m-0 p-0">&copy; {{ year }} <a href="https://pequla.com" target="_blank">Pequla</a> | Source code available
+        on <a href="https://github.com/Pequla/data-vue" target="_blank">GitHub</a></p>
     </footer>
   </div>
 </template>
 
 <script setup>
-import {ref} from 'vue';
-import {useRouter} from 'vue-router';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const year = new Date().getFullYear();
 const router = useRouter();
