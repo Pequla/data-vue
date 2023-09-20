@@ -9,7 +9,7 @@
     The application is running alongside a discord bot that provides mechanisms for data manipulation. Here you can
     find more details about the bot
   </p>
-  <table class="table table-striped w-75 mx-auto" v-if="info">
+  <table class="table table-striped mx-auto" v-if="info">
     <tbody>
     <tr>
       <th>APP ID</th>

@@ -3,7 +3,7 @@
 }
 
 .clickable-row:hover {
-    background-color: #e2e2e2;
+    font-weight: bold;
     cursor: pointer;
 }
 
