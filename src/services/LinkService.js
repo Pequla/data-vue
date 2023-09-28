@@ -15,5 +15,14 @@ export default {
     },
     getGuilds() {
         return client.get('/info/guilds')
+    },
+    getMinecraftAccountByName(name) {
+        return client.get('/cache/name/' + name)
+    },
+    getLinkDataByUUID(uuid) {
+        return client.get(`/data/uuid/${uuid}/history`)
+    },
+    getDiscordUserByUUID(uuid) {
+        return client.get('/user/' + uuid)
     }
 }

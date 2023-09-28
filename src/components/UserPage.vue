@@ -29,7 +29,7 @@
         </li>
       </ul>
     </nav>
-    <table class="table table-striped mx-auto">
+    <table class="table table-striped table-hover mx-auto">
       <thead>
         <tr>
           <th scope="col">ICON</th>

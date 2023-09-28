@@ -10,6 +10,7 @@ import LinkView from '../views/docs/LinkView.vue'
 import MasterView from '../views/docs/MasterView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import AccessView from '../views/AccessView.vue'
+import AdminView from "@/views/AdminView.vue";
 
 const routes = [
     {
@@ -70,6 +71,14 @@ const routes = [
             title: 'Search'
         },
         params: true
+    },
+    {
+        path: '/mcadmin',
+        name: 'Admin',
+        component: AdminView,
+        meta: {
+            title: 'Admin'
+        }
     },
     {
         path: '/docs/cache',
