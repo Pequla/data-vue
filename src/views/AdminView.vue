@@ -11,7 +11,7 @@
                 <label for="username" class="form-label">Account by username:</label>
             </div>
             <div class="col-auto">
-                <input type="text" class="form-control" id="username" v-model="username">
+                <input type="text" class="form-control" id="username" v-model="username" v-on:keyup.enter="byUsername">
                 <div class="form-text">
                     Java Edition usernames only
                 </div>
@@ -25,7 +25,7 @@
                 <label for="uuid" class="form-label">Link History by UUID:</label>
             </div>
             <div class="col-auto">
-                <input type="text" class="form-control" id="uuid" v-model="uuid">
+                <input type="text" class="form-control" id="uuid" v-model="uuid" v-on:keyup.enter="linkByUUID">
                 <div class="form-text">
                     Java Edition GUIDv4 only
                 </div>
@@ -39,7 +39,7 @@
                 <label for="uuid" class="form-label">Discord User by UUID:</label>
             </div>
             <div class="col-auto">
-                <input type="text" class="form-control" id="uuid" v-model="uuid">
+                <input type="text" class="form-control" id="uuid" v-model="uuid" v-on:keyup.enter="userByUUID">
                 <div class="form-text">
                     Java Edition GUIDv4 only
                 </div>
