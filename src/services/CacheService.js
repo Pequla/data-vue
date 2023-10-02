@@ -24,5 +24,8 @@ export default {
     },
     getDataByName(name) {
         return client.get('/data/name/' + name)
+    },
+    getDataByUUID(uuid) {
+        return client.get('/data/uuid/' + uuid)
     }
 }
