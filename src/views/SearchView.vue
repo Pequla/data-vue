@@ -1,29 +1,46 @@
 <template>
-    <Breadcrumb :crumbs="['Search', user.name]" v-if="user"></Breadcrumb>
-    <UserDetails :user="user"></UserDetails>
+    <h1 class="h3">Search users</h1>
+    <div class="input-group mb-3 search-group">
+        <input type="text" class="form-control" placeholder="ex. Pequla" aria-describedby="search-btn" v-model="query"
+            @keydown="searchUsers">
+        <button class="btn btn-outline-secondary" type="button" id="search-btn" @click="searchUsers">Search</button>
+    </div>
+    <UserTable :arr="result" v-if="result && result.length != 0" />
+    <p v-else-if="result && result.length == 0" class="text-center">Sorry, we cloudn't find a user with that name</p>
+    <p v-else class="text-center">Noting to show! Make sure to type in something in the field above.</p>
 </template>
 
 <script setup>
-import Breadcrumb from '@/components/Breadcrumb.vue';
-import UserDetails from '@/components/UserDetails.vue';
-import router from '@/router';
+import UserTable from '@/components/UserTable.vue';
 import CacheService from '@/services/CacheService';
-import {ref} from 'vue';
-import {useRoute} from 'vue-router'
+import { ref } from 'vue';
 
-const user = ref(null)
-const route = useRoute()
+const query = ref('')
+const result = ref()
 
-const getUser = function () {
-    const name = route.params.name
-    if (name)
-        CacheService.getDataByName(name)
-            .then(rsp => user.value = rsp.data)
+let timer = null;
+async function searchUsers() {
+    if (timer) {
+        clearTimeout(timer);
+    }
+
+    timer = setTimeout(async () => {
+        if (query.value === '') {
+            result.value = [];
+            return;
+        }
+
+        const rsp = await CacheService.getDataByName(query.value);
+        result.value = rsp.data;
+        timer = null;
+    }, 1000);
 }
-
-router.afterEach((to, from, failure) => {
-    if (!failure) getUser();
-})
-
-getUser();
 </script>
+
+<style scoped>
+.search-group {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>

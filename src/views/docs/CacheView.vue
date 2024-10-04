@@ -110,6 +110,7 @@
       <li>GET <code>/api/data/guild/{id}</code> - Paged list of data for specific Guild ID</li>
       <li>GET <code>/api/data/uuid/{uuid}</code> - Data for specific UUID</li>
       <li>GET <code>/api/data/name/{username}</code> - Data for username</li>
+      <li>GET <code>/api/data/search/{name}</code> - Search result (as list) by ether name or tag</li>
     </ul>
 
   </div>

@@ -15,6 +15,9 @@
             <router-link class="nav-link" aria-current="page" to="/">Home</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" aria-current="page" to="/search">Search</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" aria-current="page" to="/about">About</router-link>
           </li>
           <li class="nav-item">
@@ -38,11 +41,6 @@
             </ul>
           </li>
         </ul>
-        <div class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Username" aria-label="Username" v-model="lookup"
-            @keypress="keyPressHandler">
-          <button class="btn btn-outline-success" type="button" @click="search">Search</button>
-        </div>
       </div>
     </div>
   </nav>
@@ -56,23 +54,5 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-
 const year = new Date().getFullYear();
-const router = useRouter();
-
-const lookup = ref(null);
-const search = () => {
-  if (lookup.value === "" || lookup.value === null) return;
-  if (lookup.value.includes(" ")) return;
-  router.push('/search/' + lookup.value);
-  lookup.value = null;
-}
-
-const keyPressHandler = (e) => {
-  if (e.key === 'Enter') {
-    search();
-  }
-}
 </script>

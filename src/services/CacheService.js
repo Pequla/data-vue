@@ -19,11 +19,11 @@ export default {
             }
         })
     },
-    getDataById(id) {
+    getDataByDiscordId(id) {
         return client.get('/data/discord/' + id)
     },
     getDataByName(name) {
-        return client.get('/data/name/' + name)
+        return client.get('/data/search/' + name)
     },
     getDataByUUID(uuid) {
         return client.get('/data/uuid/' + uuid)

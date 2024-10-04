@@ -14,6 +14,6 @@ const route = useRoute()
 const id = route.params.id;
 
 const user = ref(null);
-CacheService.getDataById(id)
+CacheService.getDataByDiscordId(id)
     .then(rsp => user.value = rsp.data)
 </script>

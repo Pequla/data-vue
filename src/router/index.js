@@ -64,13 +64,12 @@ const routes = [
         params: true
     },
     {
-        path: '/search/:name',
+        path: '/search/',
         name: 'UserSearch',
         component: SearchView,
         meta: {
             title: 'Search'
-        },
-        params: true
+        }
     },
     {
         path: '/mcadmin',

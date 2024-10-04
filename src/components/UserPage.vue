@@ -29,25 +29,7 @@
         </li>
       </ul>
     </nav>
-    <table class="table table-striped table-hover mx-auto">
-      <thead>
-        <tr>
-          <th scope="col">ICON</th>
-          <th scope="col">MINECRAFT</th>
-          <th scope="col" class="mobile-hidden">DISCORD</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="user of result.content" @click="(e) => goToUser(user)" class="clickable-row">
-          <th scope="row">
-            <img class="icon" :src="user.avatar" :alt="user.tag">
-            <img class="icon" :src="`https://visage.surgeplay.com/face/32/${user.uuid}`" :alt="user.name">
-          </th>
-          <td>{{ user.name }}</td>
-          <td class="mobile-hidden">{{ user.tag }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <UserTable :arr="result.content" />
   </div>
   <div v-else-if="result && result.content.length === 0">
     Sorry, no data was found
@@ -60,7 +42,7 @@
 <script setup>
 import axios from 'axios';
 import { ref, toRefs } from 'vue'
-import { useRouter } from "vue-router";
+import UserTable from './UserTable.vue';
 
 const props = defineProps({
   baseUrl: String
@@ -116,10 +98,5 @@ const changeSize = (e) => {
   const newSize = e.target.value
   localStorage.setItem(pageSizeKey, newSize)
   retrieveData(0, newSize)
-}
-
-const router = useRouter();
-const goToUser = (user) => {
-  router.push('/user/' + user.discordId)
 }
 </script>
