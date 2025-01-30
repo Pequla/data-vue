@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const client = axios.create({
-    baseURL: 'https://cache.samifying.com/api',
+    baseURL: process.env.VUE_APP_CACHE_API_URL || '/api',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
