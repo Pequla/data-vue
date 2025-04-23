@@ -20,9 +20,8 @@
                         <button class="page-link" @click="previousPage">Previous</button>
                     </li>
                     <li class="page-item active">
-                        <button class="page-link">{{
-                            result.number
-                            }}
+                        <button class="page-link">
+                            {{ result.number }}
                         </button>
                     </li>
                     <li class="page-item">
@@ -35,22 +34,24 @@
             </nav>
             <table class="table table-striped">
                 <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">ADDRESS</th>
-                    <th scope="col">PATH</th>
-                    <th scope="col">METHOD</th>
-                    <th scope="col">CREATED AT</th>
-                </tr>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">ADDRESS</th>
+                        <th scope="col">PATH</th>
+                        <th scope="col">METHOD</th>
+                        <th scope="col">CREATED AT</th>
+                        <th scope="col">UPDATED AT</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr v-for="record in result.content">
-                    <th scope="row">{{ record.id }}</th>
-                    <td>{{ record.address }}</td>
-                    <td>{{ record.path }}</td>
-                    <td>{{ record.method }}</td>
-                    <td>{{ DateService.formatDate(record.createdAt) }}</td>
-                </tr>
+                    <tr v-for="record in result.content">
+                        <th scope="row">{{ record.id }}</th>
+                        <td>{{ record.address }}</td>
+                        <td>{{ record.path }}</td>
+                        <td>{{ record.method }}</td>
+                        <td>{{ DateService.formatDate(record.createdAt) }}</td>
+                        <td>{{ DateService.formatDate(record.updatedAt) }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -63,7 +64,7 @@
 <script setup>
 import CacheService from '@/services/CacheService';
 import DateService from '@/services/DateService'
-import {ref} from 'vue';
+import { ref } from 'vue';
 
 const result = ref(null);
 const size = ref(10);
