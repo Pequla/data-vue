@@ -9,7 +9,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="user of arr" @click="(e) => goToUser(user)" >
+            <tr v-for="user of arr" @click="(e) => goToUser(user)" class="pointer">
                 <th scope="row" class="icon-col">
                     <img class="icon" :src="user.avatar" :alt="user.tag">
                     <img class="icon" :src="`https://visage.surgeplay.com/face/32/${user.uuid}`" :alt="user.name">

@@ -1,5 +1,5 @@
 <template>
-  <h3>About the app</h3>
+  <h3>About The App</h3>
   <p>This application is supposed to help players and minecraft server admins to find and discover data about
     users. The application is using only 2 APIs to display data <code>https://link.samifying.com/api</code>
     and

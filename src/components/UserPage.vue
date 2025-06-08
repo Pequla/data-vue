@@ -19,7 +19,7 @@
           <button class="page-link" @click="previousPage">Previous</button>
         </li>
         <li class="page-item active">
-          <button class="page-link">{{ result.number }}</button>
+          <button class="page-link">{{ result.number + 1 }}</button>
         </li>
         <li class="page-item">
           <button class="page-link" @click="nextPage">Next</button>
@@ -31,23 +31,23 @@
     </nav>
     <UserTable :arr="result.content" />
   </div>
-  <div v-else-if="result && result.content.length === 0">
+  <div class="alert alert-danger" v-else-if="result && result.content.length == 0" role="alert">
     Sorry, no data was found
   </div>
-  <div v-else>
-    Loading data, please wait...
-  </div>
+  <Loading v-else />
 </template>
 
 <script setup>
-import axios from 'axios';
 import { ref, toRefs } from 'vue'
 import UserTable from './UserTable.vue';
+import Loading from './Loading.vue';
+import CacheService from '@/services/CacheService';
 
 const props = defineProps({
-  baseUrl: String
+  guild: String | null
 });
-const { baseUrl } = toRefs(props);
+
+const { guild } = toRefs(props);
 
 // Page size in localstorage
 const pageSizeKey = 'PAGE_SIZE';
@@ -56,14 +56,16 @@ if (!localStorage.getItem(pageSizeKey))
 
 const result = ref(null);
 const size = ref(parseInt(localStorage.getItem(pageSizeKey)));
+
 const retrieveData = (p = 0, s = size.value) => {
-  axios.get(baseUrl.value, {
-    params: {
-      page: p,
-      size: s,
-      sort: "id,desc"
-    }
-  }).then(rsp => result.value = rsp.data)
+  if (guild.value) {
+    CacheService.getDataByGuild(guild.value, p, s)
+      .then(rsp => result.value = rsp.data)
+    return
+  }
+
+  CacheService.getData(p, s)
+    .then(rsp => result.value = rsp.data)
 }
 
 // Initial call

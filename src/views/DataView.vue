@@ -1,10 +1,8 @@
 <template>
-  <h3>Home page</h3>
-  <UserPage :base-url="url"></UserPage>
+  <h3>Home Page</h3>
+  <UserPage />
 </template>
 
 <script setup>
 import UserPage from '@/components/UserPage.vue';
-
-const url = 'https://cache.samifying.com/api/data';
 </script>

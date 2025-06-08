@@ -2,6 +2,10 @@
     width: 32px;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
 .mobile-hidden {
     display: table-cell;
 }
@@ -12,6 +16,10 @@
 
 .data-col {
     width: 30%;
+}
+
+.count-col {
+    width: 10%;
 }
 
 @media(max-width: 50rem) {

@@ -1,5 +1,6 @@
 export default {
     formatDate(timestamp) {
+        if (timestamp == null) return 'N/A'
         return new Date(timestamp).toLocaleString('sr-RS', {
             year: 'numeric',
             month: '2-digit',
