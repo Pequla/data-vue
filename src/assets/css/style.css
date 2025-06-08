@@ -2,13 +2,16 @@
     width: 32px;
 }
 
-.clickable-row:hover {
-    font-weight: bold;
-    cursor: pointer;
-}
-
 .mobile-hidden {
     display: table-cell;
+}
+
+.icon-col {
+    width: 10%;
+}
+
+.data-col {
+    width: 30%;
 }
 
 @media(max-width: 50rem) {

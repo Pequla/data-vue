@@ -1,22 +1,22 @@
 <template>
   <div class="guilds">
     <h3>Discord servers</h3>
-    <table class="table table-striped" v-if="guilds">
+    <table class="table table-striped table-hover" v-if="guilds">
       <thead>
       <tr>
-        <th scope="col">ICON</th>
-        <th scope="col">NAME</th>
-        <th scope="col" class="mobile-hidden">ID</th>
+        <th scope="col" class="icon-col">ICON</th>
+        <th scope="col" class="data-col">NAME</th>
+        <th scope="col" class="data-col mobile-hidden">ID</th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="guild in guilds" @click="(e)=>goToGuild(guild)" class="clickable-row">
-        <th scope="row">
+      <tr v-for="guild in guilds" @click="(e)=>goToGuild(guild)">
+        <th scope="row" class="icon-col">
           <img class="icon" :src="guild.iconUrl" :alt="guild.name" v-if="guild.iconUrl"/>
           <img class="icon" src="@/assets/img/discord-mark-black.png" alt="guild placeholder" v-else/>
         </th>
-        <td>{{ guild.name }}</td>
-        <td class="mobile-hidden">{{ guild.id }}</td>
+        <td class="data-col">{{ guild.name }}</td>
+        <td class="data-col mobile-hidden">{{ guild.id }}</td>
       </tr>
       </tbody>
     </table>

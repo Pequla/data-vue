@@ -2,25 +2,28 @@
     <table class="table table-striped table-hover mx-auto">
         <thead>
             <tr>
-                <th scope="col">ICON</th>
-                <th scope="col">MINECRAFT</th>
-                <th scope="col" class="mobile-hidden">DISCORD</th>
+                <th scope="col" class="icon-col">ICON</th>
+                <th scope="col" class="data-col">MINECRAFT</th>
+                <th scope="col" class="data-col mobile-hidden">DISCORD</th>
+                <th scope="col" class="data-col mobile-hidden">LINKED AT</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="user of arr" @click="(e) => goToUser(user)" class="clickable-row">
-                <th scope="row">
+            <tr v-for="user of arr" @click="(e) => goToUser(user)" >
+                <th scope="row" class="icon-col">
                     <img class="icon" :src="user.avatar" :alt="user.tag">
                     <img class="icon" :src="`https://visage.surgeplay.com/face/32/${user.uuid}`" :alt="user.name">
                 </th>
-                <td>{{ user.name }}</td>
-                <td class="mobile-hidden">{{ user.tag }}</td>
+                <td class="data-col">{{ user.name }}</td>
+                <td class="data-col mobile-hidden">{{ user.tag }}</td>
+                <td class="data-col mobile-hidden">{{ DateService.formatDate(user.createdAt) }}</td>
             </tr>
         </tbody>
     </table>
 </template>
 
 <script setup>
+import DateService from '@/services/DateService';
 import { toRefs } from 'vue'
 import { useRouter } from "vue-router";
 
