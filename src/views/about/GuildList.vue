@@ -23,9 +23,9 @@
               <button type="button" class="btn btn-sm btn-primary" @click="goToGuild(guild)">
                 <i class="fa-solid fa-circle-info"></i>
               </button>
-              <RouterLink :to="`/user/${guild.lastLinkedData.discordId}`" class="btn btn-sm btn-secondary">
+              <!-- <RouterLink :to="`/user/${guild.lastLinkedData.discordId}`" class="btn btn-sm btn-secondary">
                 <i class="fa-solid fa-user"></i>
-              </RouterLink>
+              </RouterLink> -->
               <a :href="guild.inviteUrl" class="btn btn-sm btn-success" title="Discord Invite" target="_blank" v-if="guild.inviteUrl">
                 <i class="fa-solid fa-link"></i>
               </a>
