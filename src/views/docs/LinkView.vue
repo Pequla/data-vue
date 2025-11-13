@@ -57,6 +57,10 @@
                 if
                 the member <strong>can talk</strong> in theme</p>
         </blockquote>
+         <h5 id="application-info">All Guild List</h5>
+        <ul>
+            <li>GET <code>/api/guild</code></li>
+        </ul>
         <h5 id="minecraft-server-status">Minecraft server status</h5>
         <ul>
             <li>GET <code>/api/status/{hostname}</code> - Status for domain (detects SRV record) or an IP with default
