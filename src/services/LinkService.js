@@ -13,8 +13,11 @@ export default {
     getInfo() {
         return client.get('/info')
     },
-    getGuilds() {
+    getJoinedGuilds() {
         return client.get('/info/guilds')
+    },
+    getAllGuilds() {
+        return client.get('/guild')
     },
     getMinecraftAccountByName(name) {
         return client.get('/cache/name/' + name)
