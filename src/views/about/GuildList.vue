@@ -14,7 +14,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="guild in guilds" class="pointer" @click="goToGuild(guild)">
+            <tr v-for="guild in guilds" class="pointer" @click="goToGuild(guild.id)">
               <th scope="row" class="icon-col">
                 <img class="icon" :src="guild.iconUrl" :alt="guild.name" v-if="guild.iconUrl" />
                 <img class="icon" src="@/assets/img/discord-mark-black.png" alt="guild placeholder" v-else />
@@ -40,7 +40,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="guild in other" class="pointer" @click="goToGuild(guild)">
+            <tr v-for="guild in other" class="pointer" @click="goToGuild(guild.discordId)">
               <th scope="row" class="icon-col">
                 <img class="icon" src="@/assets/img/discord-mark-black.png" :alt="guild.discordId" />
               </th>
@@ -70,7 +70,7 @@ LinkService.getAllGuilds()
   .then(rsp => other.value = rsp.data)
 
 const router = useRouter()
-const goToGuild = (guild) => {
-  router.push('/guild/' + guild.id)
+const goToGuild = (id) => {
+  router.push('/guild/' + id)
 }
 </script>
