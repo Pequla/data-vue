@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /access
+Disallow: /mcadmin
+
+User-agent: *
+Allow: /
