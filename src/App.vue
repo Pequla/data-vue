@@ -13,42 +13,54 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <RouterLink exact-active-class="active" class="nav-link" aria-current="page" to="/">
-              Home
+              <i class="fa-solid fa-house"></i> Home
             </RouterLink>
           </li>
           <li class="nav-item">
             <RouterLink exact-active-class="active" class="nav-link" aria-current="page" to="/search">
-              Search
+              <i class="fa-solid fa-magnifying-glass"></i> Search
             </RouterLink>
           </li>
           <li class="nav-item">
             <RouterLink exact-active-class="active" class="nav-link" aria-current="page" to="/about">
-              About
+              <i class="fa-solid fa-chart-pie"></i> About
             </RouterLink>
           </li>
           <li class="nav-item">
             <RouterLink exact-active-class="active" class="nav-link" aria-current="page" to="/guilds">
-              Guilds
+              <i class="fa-solid fa-users"></i> Guilds
             </RouterLink>
           </li>
           <li class="nav-item dropdown">
             <RouterLink class="nav-link dropdown-toggle" to="/docs" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Docs
+              <i class="fa-solid fa-clipboard"></i> Docs
             </RouterLink>
             <ul class="dropdown-menu">
               <li>
-                <RouterLink to="/docs/cache" class="dropdown-item">Data Cache</RouterLink>
+                <RouterLink to="/docs/cache" class="dropdown-item">
+                  <i class="fa-brands fa-database"></i> Data Cache
+                </RouterLink>
               </li>
               <li>
-                <RouterLink to="/docs/link" class="dropdown-item">Data Link</RouterLink>
-              </li>
-              <li>
-                <RouterLink to="/docs/master" class="dropdown-item">Master</RouterLink>
+                <RouterLink to="/docs/link" class="dropdown-item">
+                  <i class="fa-solid fa-link"></i> Data Link
+                </RouterLink>
               </li>
             </ul>
           </li>
         </ul>
+        <div class="d-flex flex-column flex-lg-row gap-2 ms-lg-auto mt-3 mt-lg-0">
+          <a href="https://discord.gg/pgmupvqvsm" target="_blank" rel="noopener noreferrer"
+            class="btn btn-sm btn-secondary">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Support Server
+          </a>
+
+          <a href="https://discord.com/api/oauth2/authorize?client_id=770681237622095913&permissions=8&scope=applications.commands%20bot"
+            target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-discord">
+            <i class="fa-brands fa-discord"></i> Invite Bot
+          </a>
+        </div>
       </div>
     </div>
   </nav>

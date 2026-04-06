@@ -2,7 +2,9 @@
     <div class="text-center mx-auto custom-border">
         <h3>Oops, page missing!</h3>
         <p>It seams like the page you requested does not exist.</p>
-        <RouterLink to="/" class="btn btn-primary">Go Home</RouterLink>
+        <RouterLink to="/" class="btn btn-primary">
+           <i class="fa-solid fa-house"></i> Go Home
+        </RouterLink>
     </div>
 </template>
 

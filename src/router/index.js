@@ -7,7 +7,6 @@ import UserView from '../views/UserView.vue'
 import SearchView from '../views/SearchView.vue'
 import CacheView from '../views/docs/CacheView.vue'
 import LinkView from '../views/docs/LinkView.vue'
-import MasterView from '../views/docs/MasterView.vue'
 import AccessView from '../views/AccessView.vue'
 import AdminView from "@/views/AdminView.vue";
 import NotFound from '../views/NotFound.vue';
@@ -93,14 +92,6 @@ const routes = [
         component: LinkView,
         meta: {
             title: 'Link'
-        }
-    },
-    {
-        path: '/docs/master',
-        name: 'MasterDocs',
-        component: MasterView,
-        meta: {
-            title: 'Master'
         }
     },
     {
